@@ -439,6 +439,43 @@ class VirtualKeyboard {
 
     document.head.append(this.linkStyle, this.linkFavicon, this.tagTitle);
     document.body.prepend(this.wrapperContent);
+
+    this.addEvents();
+  }
+
+  addEvents() {
+    document.addEventListener('keydown', (event) => {
+      event.preventDefault();
+
+      const currentKey = document.getElementById(event.code);
+      if (!currentKey) {
+        event.preventDefault();
+      }
+
+      if (event.code === 'CapsLock') {
+        this.capslock = !this.capslock;
+        if (this.capslock) {
+          currentKey.classList.add('capslock__pressed');
+        } else {
+          currentKey.classList.remove('capslock__pressed');
+        }
+      } else {
+        currentKey.classList.add('pressed-button');
+      }
+    });
+
+    document.addEventListener('keyup', (event) => {
+      event.preventDefault();
+
+      const currentKey = document.getElementById(event.code);
+      if (!currentKey) {
+        event.preventDefault();
+      }
+
+      if (event.code !== 'CapsLock') {
+        currentKey.classList.remove('pressed-button');
+      }
+    });
   }
 }
 

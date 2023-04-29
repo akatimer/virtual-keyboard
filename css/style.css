@@ -54,3 +54,12 @@ padding: 0;
 .main-content__lang-switcher {
 
 }
+
+.pressed-button {
+  background-color: greenyellow;
+}
+
+.wrapper-keyboard__key.capslock__pressed { 
+  background-color: orange;
+}
+
