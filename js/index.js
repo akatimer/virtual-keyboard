@@ -327,31 +327,25 @@ const keyObj = [
     code: 'ControlLeft',
     dualSign: true,
     lang: { en: 'Ctrl', ru: 'Ctrl' },
-    keySize: 'double',
+    keySize: 'standardplus',
   },
   {
     code: 'AltLeft',
     dualSign: true,
     lang: { en: 'Alt', ru: 'Alt' },
-    keySize: 'double',
+    keySize: 'standard',
   },
   {
     code: 'Space',
     dualSign: false,
-    lang: { en: ' ', ru: ' ' },
+    lang: { en: 'Space', ru: 'Space' },
     keySize: 'long',
   },
   {
     code: 'AltRight',
     dualSign: true,
     lang: { en: 'Alt', ru: 'Alt' },
-    keySize: 'double',
-  },
-  {
-    code: 'ControlRight',
-    dualSign: true,
-    lang: { en: 'Ctrl', ru: 'Ctrl' },
-    keySize: 'double',
+    keySize: 'standard',
   },
   {
     code: 'ArrowLeft',
@@ -370,6 +364,12 @@ const keyObj = [
     dualSign: true,
     lang: { en: '→', ru: '→' },
     keySize: 'standard',
+  },
+  {
+    code: 'ControlRight',
+    dualSign: true,
+    lang: { en: 'Ctrl', ru: 'Ctrl' },
+    keySize: 'standardplus',
   },
 ];
 
@@ -401,6 +401,18 @@ class VirtualKeyboard {
   }
 
   createStructure() {
+    this.linkStyle = document.createElement('link');
+    this.linkFavicon = document.createElement('link');
+    this.tagTitle = document.createElement('title');
+
+    this.linkStyle.rel = 'stylesheet';
+    this.linkStyle.href = './css/style.css';
+
+    this.linkFavicon.rel = 'icon';
+    this.linkFavicon.href = './assets/';
+
+    this.tagTitle.innerText = 'Virtual Keyboard';
+
     this.wrapperContent = document.createElement('div');
     this.title = document.createElement('h1');
     this.textArea = document.createElement('textarea');
@@ -425,6 +437,7 @@ class VirtualKeyboard {
     this.wrapperContent.appendChild(this.info);
     this.wrapperContent.appendChild(this.langSwitcher);
 
+    document.head.append(this.linkStyle, this.linkFavicon, this.tagTitle);
     document.body.prepend(this.wrapperContent);
   }
 }
