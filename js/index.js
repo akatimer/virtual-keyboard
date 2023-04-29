@@ -416,6 +416,7 @@ class VirtualKeyboard {
     this.wrapperContent = document.createElement('div');
     this.title = document.createElement('h1');
     this.textArea = document.createElement('textarea');
+    this.layout = document.createElement('div');
     this.info = document.createElement('p');
     this.langSwitcher = document.createElement('p');
 
@@ -431,9 +432,12 @@ class VirtualKeyboard {
 
     this.textArea.autofocus = true;
 
+    this.layout.innerHTML = wrapperKeyboard.innerHTML;
+    this.layout.classList.add('wrapper-keyboard');
+
     this.wrapperContent.appendChild(this.title);
     this.wrapperContent.appendChild(this.textArea);
-    this.wrapperContent.appendChild(keyboard);
+    this.wrapperContent.appendChild(this.layout);
     this.wrapperContent.appendChild(this.info);
     this.wrapperContent.appendChild(this.langSwitcher);
 
@@ -445,7 +449,7 @@ class VirtualKeyboard {
 
   addEvents() {
     document.addEventListener('keydown', (event) => {
-      event.preventDefault();
+      // event.preventDefault();
 
       const currentKey = document.getElementById(event.code);
       if (!currentKey) {
@@ -461,6 +465,11 @@ class VirtualKeyboard {
         }
       } else {
         currentKey.classList.add('pressed-button');
+        console.log(currentKey);
+        if (!keys[event.code].dualSign) {
+          event.preventDefault();
+          this.textArea.value += this.textArea.textContent + currentKey.textContent;
+        }
       }
     });
 
@@ -473,8 +482,34 @@ class VirtualKeyboard {
       }
 
       if (event.code !== 'CapsLock') {
-        currentKey.classList.remove('pressed-button');
+        setTimeout(() => {
+          currentKey.classList.remove('pressed-button');
+        }, 200);
       }
+    });
+
+    console.log(wrapperKeyboard);
+
+    this.layout.addEventListener('click', (event) => {
+      this.textArea.focus();
+      const currentKeyPressed = new KeyboardEvent('keydown', {
+        code: event.target.id,
+        bubbles: true,
+        cancelable: true,
+        view: window,
+      });
+      console.log(this.layout);
+      console.log(currentKeyPressed);
+      document.dispatchEvent(currentKeyPressed);
+
+      this.textArea.focus();
+      const currentKeyReleased = new KeyboardEvent('keyup', {
+        code: event.target.id,
+        bubbles: true,
+        cancelable: true,
+        view: window,
+      });
+      document.dispatchEvent(currentKeyReleased);
     });
   }
 }
