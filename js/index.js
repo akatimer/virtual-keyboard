@@ -337,7 +337,7 @@ const keyObj = [
   },
   {
     code: 'Space',
-    action: false,
+    action: true,
     lang: { en: 'Space', ru: 'Space' },
     keySize: 'long',
   },
@@ -471,6 +471,15 @@ class VirtualKeyboard {
         if (!keys[event.code].action) {
           event.preventDefault();
           this.textArea.value += currentKey.textContent;
+        } else if (event.code === 'Backspace') {
+          event.preventDefault();
+          this.textArea.value = this.textArea.value.substring(0, this.textArea.value.length - 1);
+        } else if (event.code === 'Tab') {
+          this.textArea.value += '\t';
+        } else if (event.code === 'Enter') {
+          this.textArea.value += '\n';
+        } else if (event.code === 'Space') {
+          this.textArea.value += ' ';
         }
       }
     });
