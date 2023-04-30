@@ -1,373 +1,373 @@
 const keyObj = [
   {
     code: 'Backquote',
-    dualSign: false,
+    action: false,
     lang: { en: '`', ru: 'ё' },
     keySize: 'standard',
   },
   {
     code: 'Digit1',
-    dualSign: false,
+    action: false,
     lang: { en: '1', ru: '1' },
     keySize: 'standard',
   },
   {
     code: 'Digit2',
-    dualSign: false,
+    action: false,
     lang: { en: '2', ru: '2' },
     keySize: 'standard',
   },
   {
     code: 'Digit3',
-    dualSign: false,
+    action: false,
     lang: { en: '3', ru: '3' },
     keySize: 'standard',
   },
   {
     code: 'Digit4',
-    dualSign: false,
+    action: false,
     lang: { en: '4', ru: '4' },
     keySize: 'standard',
   },
   {
     code: 'Digit5',
-    dualSign: false,
+    action: false,
     lang: { en: '5', ru: '5' },
     keySize: 'standard',
   },
   {
     code: 'Digit6',
-    dualSign: false,
+    action: false,
     lang: { en: '6', ru: '6' },
     keySize: 'standard',
   },
   {
     code: 'Digit7',
-    dualSign: false,
+    action: false,
     lang: { en: '7', ru: '7' },
     keySize: 'standard',
   },
   {
     code: 'Digit8',
-    dualSign: false,
+    action: false,
     lang: { en: '8', ru: '8' },
     keySize: 'standard',
   },
   {
     code: 'Digit9',
-    dualSign: false,
+    action: false,
     lang: { en: '9', ru: '9' },
     keySize: 'standard',
   },
   {
     code: 'Digit0',
-    dualSign: false,
+    action: false,
     lang: { en: '0', ru: '0' },
     keySize: 'standard',
   },
   {
     code: 'Minus',
-    dualSign: false,
+    action: false,
     lang: { en: '-', ru: '-' },
     keySize: 'standard',
   },
   {
     code: 'Equal',
-    dualSign: false,
+    action: false,
     lang: { en: '=', ru: '=' },
     keySize: 'standard',
   },
   {
     code: 'Backspace',
-    dualSign: true,
+    action: true,
     lang: { en: 'Backspace', ru: 'Backspace' },
     keySize: 'double',
   },
   {
     code: 'Tab',
-    dualSign: true,
+    action: true,
     lang: { en: 'Tab', ru: 'Tab' },
     keySize: 'double',
   },
   {
     code: 'KeyQ',
-    dualSign: false,
+    action: false,
     lang: { en: 'q', ru: 'й' },
     keySize: 'standard',
   },
   {
     code: 'KeyW',
-    dualSign: false,
+    action: false,
     lang: { en: 'w', ru: 'ц' },
     keySize: 'standard',
   },
   {
     code: 'KeyE',
-    dualSign: false,
+    action: false,
     lang: { en: 'e', ru: 'у' },
     keySize: 'standard',
   },
   {
     code: 'KeyR',
-    dualSign: false,
+    action: false,
     lang: { en: 'r', ru: 'к' },
     keySize: 'standard',
   },
   {
     code: 'KeyT',
-    dualSign: false,
+    action: false,
     lang: { en: 't', ru: 'е' },
     keySize: 'standard',
   },
   {
     code: 'KeyY',
-    dualSign: false,
+    action: false,
     lang: { en: 'y', ru: 'н' },
     keySize: 'standard',
   },
   {
     code: 'KeyU',
-    dualSign: false,
+    action: false,
     lang: { en: 'u', ru: 'г' },
     keySize: 'standard',
   },
   {
     code: 'KeyI',
-    dualSign: false,
+    action: false,
     lang: { en: 'i', ru: 'ш' },
     keySize: 'standard',
   },
   {
     code: 'KeyO',
-    dualSign: false,
+    action: false,
     lang: { en: 'o', ru: 'щ' },
     keySize: 'standard',
   },
   {
     code: 'KeyP',
-    dualSign: false,
+    action: false,
     lang: { en: 'p', ru: 'з' },
     keySize: 'standard',
   },
   {
     code: 'BracketLeft',
-    dualSign: false,
+    action: false,
     lang: { en: '[', ru: 'х' },
     keySize: 'standard',
   },
   {
     code: 'BracketRight',
-    dualSign: false,
+    action: false,
     lang: { en: ']', ru: 'ъ' },
     keySize: 'standard',
   },
   {
     code: 'Backslash',
-    dualSign: false,
+    action: false,
     lang: { en: '\\', ru: '\\' },
     keySize: 'standard',
   },
   {
     code: 'CapsLock',
-    dualSign: true,
+    action: true,
     lang: { en: 'Capslock', ru: 'Capslock' },
     keySize: 'double',
   },
   {
     code: 'KeyA',
-    dualSign: false,
+    action: false,
     lang: { en: 'a', ru: 'ф' },
     keySize: 'standard',
   },
   {
     code: 'KeyS',
-    dualSign: false,
+    action: false,
     lang: { en: 's', ru: 'ы' },
     keySize: 'standard',
   },
   {
     code: 'KeyD',
-    dualSign: false,
+    action: false,
     lang: { en: 'd', ru: 'в' },
     keySize: 'standard',
   },
   {
     code: 'KeyF',
-    dualSign: false,
+    action: false,
     lang: { en: 'f', ru: 'а' },
     keySize: 'standard',
   },
   {
     code: 'KeyG',
-    dualSign: false,
+    action: false,
     lang: { en: 'g', ru: 'п' },
     keySize: 'standard',
   },
   {
     code: 'KeyH',
-    dualSign: false,
+    action: false,
     lang: { en: 'h', ru: 'р' },
     keySize: 'standard',
   },
   {
     code: 'KeyJ',
-    dualSign: false,
+    action: false,
     lang: { en: 'j', ru: 'о' },
     keySize: 'standard',
   },
   {
     code: 'KeyK',
-    dualSign: false,
+    action: false,
     lang: { en: 'k', ru: 'л' },
     keySize: 'standard',
   },
   {
     code: 'KeyL',
-    dualSign: false,
+    action: false,
     lang: { en: 'l', ru: 'д' },
     keySize: 'standard',
   },
   {
     code: 'Semicolon',
-    dualSign: false,
+    action: false,
     lang: { en: ';', ru: 'ж' },
     keySize: 'standard',
   },
   {
     code: 'Quote',
-    dualSign: false,
+    action: false,
     lang: { en: `'`, ru: 'э' },
     keySize: 'standard',
   },
   {
     code: 'Enter',
-    dualSign: true,
+    action: true,
     lang: { en: 'Enter', ru: 'Enter' },
     keySize: 'double',
   },
   {
     code: 'ShiftLeft',
-    dualSign: true,
+    action: true,
     lang: { en: 'Shift', ru: 'Shift' },
     keySize: 'double',
   },
   {
     code: 'KeyZ',
-    dualSign: false,
+    action: false,
     lang: { en: 'z', ru: 'я' },
     keySize: 'standard',
   },
   {
     code: 'KeyX',
-    dualSign: false,
+    action: false,
     lang: { en: 'x', ru: 'ч' },
     keySize: 'standard',
   },
   {
     code: 'KeyC',
-    dualSign: false,
+    action: false,
     lang: { en: 'c', ru: 'с' },
     keySize: 'standard',
   },
   {
     code: 'KeyV',
-    dualSign: false,
+    action: false,
     lang: { en: 'v', ru: 'м' },
     keySize: 'standard',
   },
   {
     code: 'KeyB',
-    dualSign: false,
+    action: false,
     lang: { en: 'b', ru: 'и' },
     keySize: 'standard',
   },
   {
     code: 'KeyN',
-    dualSign: false,
+    action: false,
     lang: { en: 'n', ru: 'т' },
     keySize: 'standard',
   },
   {
     code: 'KeyM',
-    dualSign: false,
+    action: false,
     lang: { en: 'm', ru: 'ь' },
     keySize: 'standard',
   },
   {
     code: 'Comma',
-    dualSign: false,
+    action: false,
     lang: { en: ',', ru: 'б' },
     keySize: 'standard',
   },
   {
     code: 'Period',
-    dualSign: false,
+    action: false,
     lang: { en: '.', ru: 'ю' },
     keySize: 'standard',
   },
   {
     code: 'Slash',
-    dualSign: false,
+    action: false,
     lang: { en: '/', ru: '.' },
     keySize: 'standard',
   },
   {
     code: 'ArrowUp',
-    dualSign: true,
+    action: true,
     lang: { en: '↑', ru: '↑' },
     keySize: 'standard',
   },
   {
     code: 'ShiftRight',
-    dualSign: true,
+    action: true,
     lang: { en: 'Shift', ru: 'Shift' },
     keySize: 'double',
   },
   {
     code: 'ControlLeft',
-    dualSign: true,
+    action: true,
     lang: { en: 'Ctrl', ru: 'Ctrl' },
     keySize: 'standard',
   },
   {
     code: 'AltLeft',
-    dualSign: true,
+    action: true,
     lang: { en: 'Alt', ru: 'Alt' },
     keySize: 'standard',
   },
   {
     code: 'Space',
-    dualSign: false,
+    action: false,
     lang: { en: 'Space', ru: 'Space' },
     keySize: 'long',
   },
   {
     code: 'AltRight',
-    dualSign: true,
+    action: true,
     lang: { en: 'Alt', ru: 'Alt' },
     keySize: 'standard',
   },
   {
     code: 'ArrowLeft',
-    dualSign: true,
+    action: true,
     lang: { en: '←', ru: '←' },
     keySize: 'standard',
   },
   {
     code: 'ArrowDown',
-    dualSign: true,
+    action: true,
     lang: { en: '↓', ru: '↓' },
     keySize: 'standard',
   },
   {
     code: 'ArrowRight',
-    dualSign: true,
+    action: true,
     lang: { en: '→', ru: '→' },
     keySize: 'standard',
   },
   {
     code: 'ControlRight',
-    dualSign: true,
+    action: true,
     lang: { en: 'Ctrl', ru: 'Ctrl' },
     keySize: 'standard',
   },
@@ -380,7 +380,7 @@ wrapperKeyboard.classList.add('wrapper-keyboard');
 
 keyObj.forEach((key) => {
   keys[key.code] = key.lang;
-  keys[key.code].dualSign = key.dualSign;
+  keys[key.code].action = key.action;
 
   const keyButton = document.createElement('div');
   keyButton.setAttribute('id', key.code);
@@ -460,13 +460,15 @@ class VirtualKeyboard {
         this.capslock = !this.capslock;
         if (this.capslock) {
           currentKey.classList.add('capslock__pressed');
+          this.checkCapsLock();
         } else {
           currentKey.classList.remove('capslock__pressed');
+          this.checkCapsLock();
         }
       } else {
         currentKey.classList.add('pressed-button');
         console.log(currentKey);
-        if (!keys[event.code].dualSign) {
+        if (!keys[event.code].action) {
           event.preventDefault();
           this.textArea.value += currentKey.textContent;
         }
@@ -512,7 +514,18 @@ class VirtualKeyboard {
       document.dispatchEvent(currentKeyReleased);
     });
   }
+
+  checkCapsLock() {
+    this.layout.querySelectorAll('.wrapper-keyboard__key').forEach((e) => {
+      if (this.capslock) {
+        e.textContent = e.textContent.toUpperCase();
+      } else {
+        e.textContent = e.textContent.toLowerCase();
+      }
+    });
+  }
 }
+
 
 window.addEventListener('DOMContentLoaded', () => {
   const newKeyboard = new VirtualKeyboard();
