@@ -414,7 +414,7 @@ class VirtualKeyboard {
 
     this.tagTitle.innerText = 'Virtual Keyboard';
 
-    this.wrapperContent = document.createElement('div');
+    this.wrapperContent = document.createElement('main');
     this.title = document.createElement('h1');
     this.textArea = document.createElement('textarea');
     this.layout = document.createElement('div');
