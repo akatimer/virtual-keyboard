@@ -396,7 +396,7 @@ console.log(keyboard, wrapperKeyboard);
 
 class VirtualKeyboard {
   constructor() {
-    this.lang = localStorage.getItem('lang') === 'en' ? 'en' : 'ru';
+    this.lang = localStorage.getItem('lang') === 'ru' ? 'ru' : 'en';
     this.capslock = false;
     this.shift = false;
   }
@@ -436,6 +436,9 @@ class VirtualKeyboard {
     this.layout.innerHTML = wrapperKeyboard.innerHTML;
     this.layout.classList.add('wrapper-keyboard');
 
+    this.lang = localStorage.getItem('lang') === 'ru' ? 'ru' : 'en';
+    this.showLayout();
+
     this.wrapperContent.appendChild(this.title);
     this.wrapperContent.appendChild(this.textArea);
     this.wrapperContent.appendChild(this.layout);
@@ -469,7 +472,9 @@ class VirtualKeyboard {
       } else {
         currentKey.classList.add('pressed-button');
         console.log(currentKey);
-        if (!keys[event.code].action) {
+        if (event.ctrlKey && event.altKey) {
+          this.switchLanguage();
+        } else if (!keys[event.code].action) {
           event.preventDefault();
           this.textArea.value += currentKey.textContent;
         } else if (event.code === 'Backspace') {
@@ -567,6 +572,36 @@ class VirtualKeyboard {
         e.textContent = e.textContent.toUpperCase();
       } else {
         e.textContent = e.textContent.toLowerCase();
+      }
+    });
+  }
+
+  switchLanguage() {
+    const { lang } = this;
+    // console.log(lang);
+    this.layout.querySelectorAll('.wrapper-keyboard__key').forEach((e) => {
+      if (lang === 'en') {
+        this.lang = 'ru';
+        localStorage.setItem('lang', this.lang);
+        // console.log(e.id, lang);
+        e.textContent = keys[e.id][this.lang];
+      } else {
+        this.lang = 'en';
+        localStorage.setItem('lang', this.lang);
+        e.textContent = keys[e.id][this.lang];
+      }
+    });
+  }
+
+  showLayout() {
+    const { lang } = this;
+    this.layout.querySelectorAll('.wrapper-keyboard__key').forEach((e) => {
+      if (lang === 'en') {
+        localStorage.setItem('lang', this.lang);
+        e.textContent = keys[e.id][this.lang];
+      } else {
+        localStorage.setItem('lang', this.lang);
+        e.textContent = keys[e.id][this.lang];
       }
     });
   }
