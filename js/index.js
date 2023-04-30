@@ -327,7 +327,7 @@ const keyObj = [
     code: 'ControlLeft',
     dualSign: true,
     lang: { en: 'Ctrl', ru: 'Ctrl' },
-    keySize: 'standardplus',
+    keySize: 'standard',
   },
   {
     code: 'AltLeft',
@@ -369,7 +369,7 @@ const keyObj = [
     code: 'ControlRight',
     dualSign: true,
     lang: { en: 'Ctrl', ru: 'Ctrl' },
-    keySize: 'standardplus',
+    keySize: 'standard',
   },
 ];
 
@@ -468,7 +468,7 @@ class VirtualKeyboard {
         console.log(currentKey);
         if (!keys[event.code].dualSign) {
           event.preventDefault();
-          this.textArea.value += this.textArea.textContent + currentKey.textContent;
+          this.textArea.value += currentKey.textContent;
         }
       }
     });
