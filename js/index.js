@@ -398,6 +398,7 @@ class VirtualKeyboard {
   constructor() {
     this.lang = localStorage.getItem('lang') === 'en' ? 'en' : 'ru';
     this.capslock = false;
+    this.shift = false;
   }
 
   createStructure() {
@@ -483,6 +484,9 @@ class VirtualKeyboard {
         } else if (event.code === 'Space') {
           event.preventDefault();
           this.textArea.value += ' ';
+        } else if (event.code === 'ShiftLeft') {
+          this.shift = true;
+          this.pressedShift();
         }
       }
     });
@@ -495,6 +499,11 @@ class VirtualKeyboard {
         event.preventDefault();
       }
 
+      if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
+        this.shift = false;
+        this.pressedShift();
+      }
+
       if (event.code !== 'CapsLock') {
         setTimeout(() => {
           currentKey.classList.remove('pressed-button');
@@ -504,6 +513,21 @@ class VirtualKeyboard {
 
     console.log(wrapperKeyboard);
 
+    const shiftLeft = document.getElementById('ShiftLeft');
+    const shiftRight = document.getElementById('ShiftRight');
+
+    shiftLeft.addEventListener('mousedown', () => {
+      this.shift = true;
+      shiftLeft.classList.add('pressed-button');
+      this.pressedShift();
+    });
+
+    shiftRight.addEventListener('mousedown', () => {
+      this.shift = true;
+      shiftRight.classList.add('pressed-button');
+      this.pressedShift();
+    });
+
     this.layout.addEventListener('click', (event) => {
       this.textArea.focus();
       const currentKeyPressed = new KeyboardEvent('keydown', {
@@ -512,7 +536,7 @@ class VirtualKeyboard {
         cancelable: true,
         view: window,
       });
-      console.log(this.layout);
+      console.log(event);
       console.log(currentKeyPressed);
       document.dispatchEvent(currentKeyPressed);
 
@@ -530,6 +554,16 @@ class VirtualKeyboard {
   checkCapsLock() {
     this.layout.querySelectorAll('.wrapper-keyboard__key').forEach((e) => {
       if (this.capslock) {
+        e.textContent = e.textContent.toUpperCase();
+      } else {
+        e.textContent = e.textContent.toLowerCase();
+      }
+    });
+  }
+
+  pressedShift() {
+    this.layout.querySelectorAll('.wrapper-keyboard__key').forEach((e) => {
+      if (this.shift) {
         e.textContent = e.textContent.toUpperCase();
       } else {
         e.textContent = e.textContent.toLowerCase();
