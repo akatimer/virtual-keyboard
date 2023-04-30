@@ -475,10 +475,13 @@ class VirtualKeyboard {
           event.preventDefault();
           this.textArea.value = this.textArea.value.substring(0, this.textArea.value.length - 1);
         } else if (event.code === 'Tab') {
+          event.preventDefault();
           this.textArea.value += '\t';
         } else if (event.code === 'Enter') {
+          event.preventDefault();
           this.textArea.value += '\n';
         } else if (event.code === 'Space') {
+          event.preventDefault();
           this.textArea.value += ' ';
         }
       }
@@ -534,7 +537,6 @@ class VirtualKeyboard {
     });
   }
 }
-
 
 window.addEventListener('DOMContentLoaded', () => {
   const newKeyboard = new VirtualKeyboard();
