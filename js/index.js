@@ -313,7 +313,7 @@ const keyObj = [
   },
   {
     code: 'ArrowUp',
-    action: true,
+    action: false,
     lang: { en: '↑', ru: '↑' },
     keySize: 'standard',
   },
@@ -349,19 +349,19 @@ const keyObj = [
   },
   {
     code: 'ArrowLeft',
-    action: true,
+    action: false,
     lang: { en: '←', ru: '←' },
     keySize: 'standard',
   },
   {
     code: 'ArrowDown',
-    action: true,
+    action: false,
     lang: { en: '↓', ru: '↓' },
     keySize: 'standard',
   },
   {
     code: 'ArrowRight',
-    action: true,
+    action: false,
     lang: { en: '→', ru: '→' },
     keySize: 'standard',
   },
@@ -573,10 +573,145 @@ class VirtualKeyboard {
   pressedShift() {
     this.layout.querySelectorAll('.wrapper-keyboard__key').forEach((e) => {
       if (this.shift && !this.capslock) {
+        if (e.textContent === '1') {
+          e.textContent = '!';
+        } else if (e.textContent === '2') {
+          e.textContent = '@';
+        } else if (e.textContent === '3') {
+          e.textContent = this.lang === 'ru' ? '№' : '#';
+        } else if (e.textContent === '4') {
+          e.textContent = this.lang === 'ru' ? ';' : '$';
+        } else if (e.textContent === '5') {
+          e.textContent = '%';
+        } else if (e.textContent === '6') {
+          e.textContent = this.lang === 'ru' ? ':' : '^';
+        } else if (e.textContent === '7') {
+          e.textContent = this.lang === 'ru' ? '?' : '&';
+        } else if (e.textContent === '8') {
+          e.textContent = '*';
+        } else if (e.textContent === '9') {
+          e.textContent = '(';
+        } else if (e.textContent === '0') {
+          e.textContent = ')';
+        } else if (e.textContent === '-') {
+          e.textContent = '_';
+        } else if (e.textContent === '=') {
+          e.textContent = '+';
+        } else if (e.textContent === '\\') {
+          e.textContent = this.lang === 'ru' ? '/' : '|';
+        } else if (e.textContent === '[') {
+          e.textContent = '{';
+        } else if (e.textContent === ']') {
+          e.textContent = '}';
+        } else if (e.textContent === ';') {
+          e.textContent = ':';
+        } else if (e.textContent === '\'') {
+          e.textContent = '"';
+        } else if (e.textContent === '.' && this.lang === 'ru') {
+          e.textContent = ',';
+        } else if (e.textContent === ',') {
+          e.textContent = '<';
+        } else if (e.textContent === '/') {
+          e.textContent = '?';
+        } else if (e.textContent === '`') {
+          e.textContent = '~';
+        } else if (e.textContent === '.') {
+          e.textContent = '>';
+        }
         e.textContent = e.textContent.toUpperCase();
       } else if (this.shift && this.capslock) {
+        if (e.textContent === '1') {
+          e.textContent = '!';
+        } else if (e.textContent === '2') {
+          e.textContent = '@';
+        } else if (e.textContent === '3') {
+          e.textContent = this.lang === 'ru' ? '№' : '#';
+        } else if (e.textContent === '4') {
+          e.textContent = this.lang === 'ru' ? ';' : '$';
+        } else if (e.textContent === '5') {
+          e.textContent = '%';
+        } else if (e.textContent === '6') {
+          e.textContent = this.lang === 'ru' ? ':' : '^';
+        } else if (e.textContent === '7') {
+          e.textContent = this.lang === 'ru' ? '?' : '&';
+        } else if (e.textContent === '8') {
+          e.textContent = '*';
+        } else if (e.textContent === '9') {
+          e.textContent = '(';
+        } else if (e.textContent === '0') {
+          e.textContent = ')';
+        } else if (e.textContent === '-') {
+          e.textContent = '_';
+        } else if (e.textContent === '=') {
+          e.textContent = '+';
+        } else if (e.textContent === '\\') {
+          e.textContent = this.lang === 'ru' ? '/' : '|';
+        } else if (e.textContent === '[') {
+          e.textContent = '{';
+        } else if (e.textContent === ']') {
+          e.textContent = '}';
+        } else if (e.textContent === ';') {
+          e.textContent = ':';
+        } else if (e.textContent === '\'') {
+          e.textContent = '"';
+        } else if (e.textContent === '.' && this.lang === 'ru') {
+          e.textContent = ',';
+        } else if (e.textContent === ',') {
+          e.textContent = '<';
+        } else if (e.textContent === '/') {
+          e.textContent = '?';
+        } else if (e.textContent === '`') {
+          e.textContent = '~';
+        } else if (e.textContent === '.') {
+          e.textContent = '>';
+        }
         e.textContent = e.textContent.toLowerCase();
       } else if (!this.shift) {
+        if (e.textContent === '!') {
+          e.textContent = '1';
+        } else if (e.textContent === '@' || (e.textContent === '"' && this.lang === 'ru')) {
+          e.textContent = '2';
+        } else if (e.textContent === '#' || (e.textContent === '№' && this.lang === 'ru')) {
+          e.textContent = '3';
+        } else if (e.textContent === '$' || (e.textContent === ';' && this.lang === 'ru')) {
+          e.textContent = '4';
+        } else if (e.textContent === '%' || (e.textContent === '%' && this.lang === 'ru')) {
+          e.textContent = '5';
+        } else if (e.textContent === '^' || (e.textContent === ':' && this.lang === 'ru')) {
+          e.textContent = '6';
+        } else if (e.textContent === '&' || (e.textContent === '?' && this.lang === 'ru')) {
+          e.textContent = '7';
+        } else if (e.textContent === '*' || (e.textContent === '*' && this.lang === 'ru')) {
+          e.textContent = '8';
+        } else if (e.textContent === '(' || (e.textContent === '(' && this.lang === 'ru')) {
+          e.textContent = '9';
+        } else if (e.textContent === ')' || (e.textContent === ')' && this.lang === 'ru')) {
+          e.textContent = '0';
+        } else if (e.textContent === '_' || (e.textContent === '_' && this.lang === 'ru')) {
+          e.textContent = '-';
+        } else if (e.textContent === '+' || (e.textContent === '+' && this.lang === 'ru')) {
+          e.textContent = '=';
+        } else if (e.textContent === '|' || (e.textContent === '/' && this.lang === 'ru')) {
+          e.textContent = '\\';
+        } else if (e.textContent === '{') {
+          e.textContent = '[';
+        } else if (e.textContent === '}') {
+          e.textContent = ']';
+        } else if (e.textContent === ':') {
+          e.textContent = ';';
+        } else if (e.textContent === '"') {
+          e.textContent = '\'';
+        } else if (e.textContent === '>') {
+          e.textContent = '.';
+        } else if (e.textContent === '<') {
+          e.textContent = ',';
+        } else if (e.textContent === '?') {
+          e.textContent = '/';
+        } else if (e.textContent === '~') {
+          e.textContent = '`';
+        } else if (e.textContent === ',' && this.lang === 'ru') {
+          e.textContent = '.';
+        }
         e.textContent = e.textContent.toLowerCase();
       }
     });
