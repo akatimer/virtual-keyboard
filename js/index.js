@@ -507,6 +507,10 @@ class VirtualKeyboard {
       if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
         this.shift = false;
         this.pressedShift();
+        if (this.capslock) {
+          // this.capslock = false;
+          this.checkCapsLock();
+        }
       }
 
       if (event.code !== 'CapsLock') {
@@ -568,9 +572,11 @@ class VirtualKeyboard {
 
   pressedShift() {
     this.layout.querySelectorAll('.wrapper-keyboard__key').forEach((e) => {
-      if (this.shift) {
+      if (this.shift && !this.capslock) {
         e.textContent = e.textContent.toUpperCase();
-      } else {
+      } else if (this.shift && this.capslock) {
+        e.textContent = e.textContent.toLowerCase();
+      } else if (!this.shift) {
         e.textContent = e.textContent.toLowerCase();
       }
     });
