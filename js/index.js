@@ -236,7 +236,7 @@ const keyObj = [
   {
     code: 'Quote',
     action: false,
-    lang: { en: `'`, ru: 'э' },
+    lang: { en: '\'', ru: 'э' },
     keySize: 'standard',
   },
   {
@@ -384,7 +384,7 @@ keyObj.forEach((key) => {
 
   const keyButton = document.createElement('div');
   keyButton.setAttribute('id', key.code);
-  keyButton.classList.add(`wrapper-keyboard__key`);
+  keyButton.classList.add('wrapper-keyboard__key');
   keyButton.classList.add(`key__${key.keySize}`);
 
   keyButton.textContent = key.lang.en;
@@ -392,7 +392,6 @@ keyObj.forEach((key) => {
 });
 
 keyboard.appendChild(wrapperKeyboard);
-console.log(keyboard, wrapperKeyboard);
 
 class VirtualKeyboard {
   constructor() {
@@ -453,8 +452,6 @@ class VirtualKeyboard {
 
   addEvents() {
     document.addEventListener('keydown', (event) => {
-      // event.preventDefault();
-
       const currentKey = document.getElementById(event.code);
       if (!currentKey) {
         event.preventDefault();
@@ -471,7 +468,6 @@ class VirtualKeyboard {
         }
       } else {
         currentKey.classList.add('pressed-button');
-        console.log(currentKey);
         if (event.ctrlKey && event.altKey) {
           this.switchLanguage();
         } else if (!keys[event.code].action) {
@@ -508,7 +504,6 @@ class VirtualKeyboard {
         this.shift = false;
         this.pressedShift();
         if (this.capslock) {
-          // this.capslock = false;
           this.checkCapsLock();
         }
       }
@@ -519,8 +514,6 @@ class VirtualKeyboard {
         }, 200);
       }
     });
-
-    console.log(wrapperKeyboard);
 
     const shiftLeft = document.getElementById('ShiftLeft');
     const shiftRight = document.getElementById('ShiftRight');
@@ -545,8 +538,6 @@ class VirtualKeyboard {
         cancelable: true,
         view: window,
       });
-      console.log(event);
-      console.log(currentKeyPressed);
       document.dispatchEvent(currentKeyPressed);
 
       this.textArea.focus();
@@ -719,12 +710,10 @@ class VirtualKeyboard {
 
   switchLanguage() {
     const { lang } = this;
-    // console.log(lang);
     this.layout.querySelectorAll('.wrapper-keyboard__key').forEach((e) => {
       if (lang === 'en') {
         this.lang = 'ru';
         localStorage.setItem('lang', this.lang);
-        // console.log(e.id, lang);
         e.textContent = keys[e.id][this.lang];
       } else {
         this.lang = 'en';
