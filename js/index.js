@@ -409,7 +409,7 @@ class VirtualKeyboard {
     this.linkStyle.href = './css/style.css';
 
     this.linkFavicon.rel = 'icon';
-    this.linkFavicon.href = './assets/';
+    this.linkFavicon.href = './assets/ico/keyboard.ico';
 
     this.tagTitle.innerText = 'Virtual Keyboard';
 
